@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./templates/css/style.css">
+    <link rel="stylesheet" href="./templates/css/load.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="./templates/js/main.js"></script>
+    <title>portfolio</title>
+
+</head>
+<body>
+    <div class="contents">
+
+        <!--header-->
+        <div id="header">
+            <h1>My portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#profile">プロフィール</a></li>
+                    <li><a href="#works">制作実績</a></li>
+                    <li><a href="#skills">使用言語・技術</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-btn-check">
+                <label for="menu-btn-check" class="menu-btn"><span></span></label>
+
+                <!--ハンバーガーメニュー-->
+                <div class="menu-content">
+                    <ul>
+                        <li><a href="#profile" onclick="closeMenu()">プロフィール</a></li>
+                        <li><a href="#works" onclick="closeMenu()">制作実績</a></li>
+                        <li><a href="#skills" onclick="closeMenu()">使用言語・技術</a></li>
+                        <li><a href="#contact" onclick="closeMenu()">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <!--ハンバーガーメニュー-->
+            </div>
+        </div>
+        <!--header-->
+
+        <!--プロフィール-->
+        <div id="profile">
+            <div class="image-container">
+                <img src="./templates/images/profile.jpg" alt="profile" class="img_profile">
+            </div>
+            <div>
+                <h5 class="ruby">たけざわ けい</h5>
+                <h1 class="my_name">竹澤 慧 a.k.a. あると</h1>
+                <div class="bio-container">
+                    <p>2003年3月19日生まれ。出身は青森県弘前市。</p>
+                    <p>HAL東京 IT学部 高度情報処理学科 高度情報処理コース（在学中）</p>
+                    <p>高校生時代に初めてプログラミングに触れ、様々な資格を取得しつつさらに高度な技術を身に着けるために上京。</p>
+                    <p>上京後には自分の技術の向上の傍ら、モノづくりの楽しさを子供たちへ広げるべくプログラミング教室メンターとしてデビュー。</p>
+                    <p>あだ名「あると」として、現在も子供たちへモノづくりの楽しさを広げる授業を新宿教室を中心に行っている。</p>
+                    <p>あだ名の由来としては、altキーからひらがな読みをし「おると」→「あると」といった形である。</p>
+                    <p>趣味は作品作りとコーディング。</p>
+                    <p>即興のアイディアから作品を作ることがよくあるので、そこでいかに効率よく作品作りができるのか。をよく考えながら制作している。</p>
+                    <p>また、最近はChargeSPOTのラウンダーとして様々な設置店への機器メンテナンス・バッテリー補充活動をしている。</p>
+                </div>
+            </div>
+        </div>
+        <!--プロフィール-->
+
+        <!--制作実績-->
+        <div id="works">
+            <div class="portfolio-container">
+                <h1 class="title">これまでの制作実績</h1>
+                <p class="sub_title">※画像をクリックするとGitHubに飛べます。また太字をクリックするとリンク先に飛べます。</p>
+                <div class="portfolio-row">
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">2段階認証タイムカード「ANCHOR」</h5>
+                        <p class="portfolio-description">3年次就職作品プレゼンテーション・HEW制作作品。0から企画を行い作り出した作品。Pythonを初めてふれほぼ独学の状態での制作となった。<br>使用言語・技術：Python（Flask）SMS送信：<a href="https://www.twilio.com/ja-jp">Twilio</a> <br>DB操作：MySQL 作成動画：<a href="./templates/images/anchor-intro.mp4">実際の動作シーン</a></p>
+                        <div class="portfolio-image">
+                            <a href="https://github.com/K1zuna-net/timecard-anchor" target="_blank"><img src="./templates/images/work1.png" alt="2段階認証タイムカード「ANCHOR」"></a>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">コスメ特化型ECサイト「Kharis」</h5>
+                        <p class="portfolio-description">2年次HEWのグループ制作作品。初めてのチーム制作ではサーバーサイド側（特にDB処理・サーバ操作）を担当。その他チームメンバーのデバック作業も行った。<br>使用言語：PHP・jQuery Ripples DB操作：MySQL</p>
+                        <div class="portfolio-image">
+                            <a href="https://github.com/K1zuna-net/kharis-shop" target="_blank"><img src="./templates/images/work2.png" alt="コスメ・化粧品ECサイト「Kharis」"></a>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">ポートフォリオサイト</h5>
+                        <p class="portfolio-description">就職活動に向けて過去作をまとめたサイトを制作。他社目線のデザインを意識して制作。特にレスポンシブ対応では見やすさを重視して制作した。<br>使用言語：HTML・JavaScript・CSS<br>お問い合わせフォーム：<a href="https://www.emailjs.com/">emailjs</a></p>
+                        <div class="portfolio-image">
+                            <a href="https://github.com/K1zuna-net/My-Portfolio-site" target="_blank"><img src="./templates/images/work3.png" alt="ポートフォリオサイト"></a>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="portfolio-row">
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">OWSLA紹介サイト</h5>
+                        <p class="portfolio-description">１年次前期の課題で制作したサイト。自分の好きな<a href="https://owsla.com/">OWSLA</a>を他の人に広めていきたいと思ったため制作。<br>紹介文などは海外の記事などから抜粋して制作した。<br>使用言語：HTML・CSS</p>
+                        <div class="portfolio-image">
+                            <a href="hhttps://github.com/K1zuna-net/introduction-OWSLA" target="_blank"><img src="./templates/images/work4.png" alt="OWSLA紹介サイト"></a>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">ECサイト「NieR Clothing」</h5>
+                        <p class="portfolio-description">１年次後期の課題で制作したサイト。当時、よく着ていたアパレルブランド「<a href="https://shop.nier.tokyo/">NieR Clothing</a>」のサイトを制作し、様々なECサイトのデザインを比較しながら制作した。<br>使用言語：HTML JavaScript</p>
+                        <div class="portfolio-image">
+                            <a href="https://github.com/K1zuna-net/NieR-clothing-shopping" target="_blank"><img src="./templates/images/work5.png" alt="ECサイト「NieR Clothing」"></a>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">ラーメン投票サイト「What's My Fave?」</h5>
+                        <p class="portfolio-description">1年次HEWの個人作品。サーバーサイドの処理に力を入れたラーメン投票サイトを制作。当時の自分の技術の最大限を使った作品となったのでバグが多々ある。<br>使用言語：HTML・CSS・PHP DB処理：MySQL</p>
+                        <div class="portfolio-image">
+                            <a href="https://github.com/K1zuna-net/ramen-vote" target="_blank"><img src="./templates/images/work6.png" alt="ラーメン投票サイト「What's My Fave?」"></a>
+                        </div>
+                    </section>
+                    
+                </div>
+            </div>
+        </div>
+        <!--制作実績-->
+
+        <!--使用言語・技術-->
+        <div id="skills">
+            <h1 class="title">スキル</h1>
+            <div class="portfolio-container">
+                <p class="sub_title">これまでの経験言語・技術</p>
+                <div class="portfolio-row">
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">HTML・CSS・JavaScript</h5>
+                        <p class="portfolio-description">高校時代にて<a href="https://www.goukaku.ne.jp/test_home.html">ホームページ作成検定</a>1級を取得。専門学校では基本的なWebサイトの作り方からCSSでのデザインやJavaScriptでの簡単な制御を中心に力を注いだ。２年次以降での自己制作では、レスポンシブ対応や他社目線のデザインを意識して制作を行った。</p>
+                        <div class="skill-rate">
+                            <p>熟練度　：<span class="star5_rating" data-rate="3.5"></span></p>
+                            <p>好意度　：<span class="star5_rating" data-rate="5"></span></p>
+                            <p>やる気度：<span class="star5_rating" data-rate="4"></span></p>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">PHP</h5>
+                        <p class="portfolio-description">1年次に授業で学んだ、初めてのサーバーサイド側言語。当初はとても難しく自分はできるのか…？と不安もあった言語の１つ。しかし、DB処理を扱う場面では処理が成功したときにすごいわくわく感を感じたことが残っており、そこから苦手意識がなくなり好きな言語の1つとなった。</p>
+                        <div class="skill-rate">
+                            <p>熟練度　：<span class="star5_rating" data-rate="4"></span></p>
+                            <p>好意度　：<span class="star5_rating" data-rate="5"></span></p>
+                            <p>やる気度：<span class="star5_rating" data-rate="5"></span></p>
+                        </div>
+                    </section>
+
+                    <section class="portfolio-section">
+                        <h5 class="portfolio-title">Java</h5>
+                        <p class="portfolio-description">3年次から学び始めた新たな言語。<span style="color: #ff0000;">はっきり言ってコードが書きづらい。</span>技術レベルもかなり高く、苦手な言語である。しかし、Androidアプリ開発では、実現したい機能が実際に動いた時には感動した。デバック作業はかなり難航した。今後も学びたいと思っている。</p>
+                        <div class="skill-rate">
+                            <p>熟練度　：<span class="star5_rating" data-rate="2"></span></p>
+                            <p>好意度　：<span class="star5_rating" data-rate="1"></span></p>
+                            <p>やる気度：<span class="star5_rating" data-rate="3"></span></p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="portfolio-container">
+                    <div class="portfolio-row">
+                        <section class="portfolio-section">
+                            <h5 class="portfolio-title">Python</h5>
+                            <p class="portfolio-description">2年次後半～3年次にかけてほとんど独学で学んだ言語。個人的に様々なことができるアツい言語。嫌いな部分は<span style="color: #ff0000;">IndentationErrorが頻発</span>するところ。（PHPの方がいい）しかしながら、過去に技術的に制作できなかった機能を作れるようになるのは今後の技術向上につながると思う。</p>
+                            <div class="skill-rate">
+                                <p>熟練度　：<span class="star5_rating" data-rate="3"></span></p>
+                                <p>好意度　：<span class="star5_rating" data-rate="4"></span></p>
+                                <p>やる気度：<span class="star5_rating" data-rate="4"></span></p>
+                            </div>
+                        </section>
+
+                        <section class="portfolio-section">
+                            <h5 class="portfolio-title">Windows Server「Active Directory」</h5>
+                            <p class="portfolio-description">3年次後半から個人的に学び始めた。サーバー自体に前々から興味があったためWindows Serverを選んだ。その中で「Active Directory」を使ったユーザー作成やグループポリシーを使った制御などを学んでいる。今後はファイルサーバーとして運用できるようにしたい。</p>
+                            <div class="skill-rate">
+                                <p>熟練度　：<span class="star5_rating" data-rate="2"></span></p>
+                                <p>好意度　：<span class="star5_rating" data-rate="3"></span></p>
+                                <p>やる気度：<span class="star5_rating" data-rate="4"></span></p>
+                            </div>
+                        </section>
+
+                        <section class="portfolio-section">
+                            <h5 class="portfolio-title">MySQL</h5>
+                            <p class="portfolio-description">高校時代にて、Accessを使った<a href="https://www.goukaku.ne.jp/test_db.html">データベース作成検定</a>1級を取得。専門学校では、PHPからMySQLを使ったDB処理を使い会員登録などの処理を制作。ユーザー管理のテーブルなどを主に作っていた。サーバーサイドに力を入れてきているので、今後もDB処理に力を注いでいきたい。</p>
+                            <div class="skill-rate">
+                                <p>熟練度　：<span class="star5_rating" data-rate="4"></span></p>
+                                <p>好意度　：<span class="star5_rating" data-rate="5"></span></p>
+                                <p>やる気度：<span class="star5_rating" data-rate="5"></span></p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--使用言語・技術-->
+
+        <!--お問い合わせ-->
+        <div id="contact">
+            <div id="loader">送信中…</div>
+
+        <!-- 送信完了画面のモーダル -->
+        <div id="send_error" class="modal">
+            <div class="modal-content">
+                <h2>送信エラー</h2>
+                <p>送信に失敗しました。しばらく経ってから再度送信し直すか、下記エラーを<a href="mailto:contact@k1zuna.net">contact@k1zuna.net</a>までご連絡ください。</p>
+                <p>エラー：<span id="error_msg"></span></p>
+                <button class="close-btn" onclick="send_error_hideModal()">閉じる</button>
+            </div>
+        </div>
+
+        <div id="send_success" class="modal">
+            <div class="modal-content">
+                <h2>送信完了</h2>
+                <p>お問い合わせを承りました。送信内容を入力していただいたメールアドレス宛に送信しました。</p>
+                <p>＊メールは迷惑メールフォルダに格納されている可能性があります。届いていない場合は、<a href="mailto:contact@k1zuna.net">contact@k1zuna.net</a>までご連絡ください。</p>
+                <button class="close-btn" onclick="send_success_hideModal()">閉じる</button>
+            </div>
+        </div>
+
+            <div id="contact_wrapper">
+                <h1 class="title">お問い合わせ</h1>
+                <p class="sub_title">作品についてやその他のお問い合わせなどありましたら、下記フォームに必要事項を入力し送信してください。
+                    <br>なお、送信後は自動返信メールが入力いただいたメールアドレス宛に届きます。</p>
+                    <form action="" method="post" id="contact-form">
+                        <input type="hidden" name="contact_number">
+
+                        <h1 class="contact_title">氏名</h1>
+                        <div class="contact_item">
+                            <input type="text" name="first_name"  id="first_name" placeholder="田中" required>
+                            <input type="text" name="last_name"   id="last_name"  placeholder="太郎" required>
+                        </div>
+
+                        <h1 class="contact_title">会社名（＊任意）</h1>
+                        <div class="contact_item">
+                            <input type="text" name="company_name" id="company_name" placeholder="○○株式会社" required>
+                        </div>
+
+                        <h1 class="contact_title">メールアドレス</h1>
+                        <div class="contact_item">
+                            <input type="email" name="email" id="email" placeholder="taro.tanaka@sample.com" required>
+                        </div>
+
+                        <h1 class="contact_title">件名</h1>
+                        <div class="contact_item">
+                            <input type="text" name="contact_inquiry_title" id="contact_inquiry_title" required>
+                        </div>
+
+                        <h1 class="contact_title">お問い合わせ内容</h1>
+                        <div class="contact_item">
+                            <textarea name="contact_inquiry" id="contact_inquiry" cols="10" rows="20" required></textarea>
+                        </div>
+
+                        <input type="submit" value="送信する" class="submit_btn">
+                    </form>
+                </div>
+                <div class="copyright">
+                    <small>&copy; K1zuna.net 2024</small>
+                </div>
+        </div>
+        <!--お問い合わせ-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Marhey:wght@300..700&family=Shippori+Mincho&family=Zen+Antique&display=swap');
+/*=====共通設定=====*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:darkgray
+}
+
+#profile, #works, #skills,#contact,#send_success{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.title {
+    text-align: center;
+    margin: 10px;
+    font-family: "Zen Antique", serif;
+    font-size: 38px;
+}
+
+.sub_title {
+    text-align: center;
+    font-family: "Zen Antique", serif;
+    font-size: 18px;
+}
+
+textarea {
+    resize: none;
+}
+
+
+
+/*=====ヘッダー部分=====*/
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    flex-direction: column;
+    height: auto;
+}
+
+#header h1 {
+    font-family: "Marhey", sans-serif;
+    margin: 0;
+}
+
+#header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#header nav ul li {
+    margin-right: 20px;
+}
+
+#header nav ul li:last-child {
+    margin-right: 0;
+}
+
+#header nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+/*=====ヘッダーの項目の下線=====*/
+#header nav ul li a:hover {
+    text-decoration: none;
+}
+
+#header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color:#fff; /* 下線の色を設定 */
+    transform: scaleX(0); /* 初期状態で幅を0に設定 */
+    transform-origin: left;
+    transition: transform 0.3s ease; /* アニメーションの設定 */
+}
+
+#header nav ul li a:hover::after {
+    transform: scaleX(1); /* マウスが乗ったときに幅を100%に拡大 */
+}
+
+/*=====ハンバーガーメニュー=====*/
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    height: 50px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #333;
+}
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #3584bb;
+    transition: all 0.5s;/*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;/*メニューを画面内へ*/
+}
+.menu-content ul {
+    padding: 70px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+
+.menu-btn {
+    visibility: hidden;
+}
+/*=====ハンバーガーメニュー======*/
+/*=====ヘッダー部分=====*/
+/*=====プロフィール=====*/
+#profile {
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    text-align: center;
+    margin-right: 100px;
+}
+
+.img_profile {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.my_name {
+    font-family: "Shippori Mincho", serif;
+    font-size: 30px;
+    text-align: left;
+}
+
+.ruby {
+    font-size: 15px;
+}
+
+.bio-container {
+    text-align: left;
+}
+
+.bio-container p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*=====プロフィール=====*/
+/*=====制作実績=====*/
+.portfolio-container {
+    display: flex;
+    flex-direction: column; /* カラム方向に並べる */
+}
+
+.portfolio-row {
+    display: flex;
+    margin: 0 auto;
+}
+
+.portfolio-section {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 画像を垂直方向に中央揃え */
+    margin: 20px; /* セクション間の余白を広く */
+    background-color: #ffffff;
+    padding: 5px; /* セクション内の余白を少なく */
+}
+
+.portfolio-title {
+    font-family: "Shippori Mincho", serif;
+    font-size: 20px; /* タイトルのフォントサイズを少し大きく */
+    margin-bottom: 10px; /* タイトルのマージンを広く */
+}
+
+.portfolio-description {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 15px; /* 説明文のフォントサイズを少し大きく */
+}
+
+.portfolio-image {
+    text-align: center;
+}
+
+.portfolio-image img{
+    width: 75%;
+    height: auto;
+}
+
+
+.portfolio-description a{
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    font-weight: 900;
+}
+/*=====ヘッダーの項目の下線=====*/
+.portfolio-description a:hover {
+    text-decoration: none;
+}
+
+.portfolio-description a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color:#333; /* 下線の色を設定 */
+    transform: scaleX(0); /* 初期状態で幅を0に設定 */
+    transform-origin: left;
+    transition: transform 0.3s ease; /* アニメーションの設定 */
+}
+
+.portfolio-description a:hover::after {
+    transform: scaleX(1); /* マウスが乗ったときに幅を100%に拡大 */
+}
+
+
+/*=====制作実績=====*/
+
+/*=====使用言語・技術*/
+.skill-rate { 
+    margin: 10px;
+}
+
+.skill-rate p { 
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.star5_rating{
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCCCCC; /* グレーカラー 自由に設定化 */
+    /*font-size: 30px; フォントサイズ 自由に設定化 */
+}
+
+.star5_rating:before, .star5_rating:after{
+    content: '★★★★★';
+}
+
+.star5_rating:after{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcf32; /* イエローカラー 自由に設定化 */
+}
+
+.star5_rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
+.star5_rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
+.star5_rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
+.star5_rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
+.star5_rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
+.star5_rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
+.star5_rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
+.star5_rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
+.star5_rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
+.star5_rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
+.star5_rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
+/*=====使用言語・技術*/
+
+/*=====お問い合わせ=====*/
+#contact-form { 
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contact_title{
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.contact_item {
+    width: 100%;
+    display: flex;
+}
+
+.contact_item input, .contact_item textarea {
+    border-radius: 10px;
+    background: #fafafa;
+    border: none;
+    border-bottom: 2px solid #e9e9e9;
+    color: #333;
+    font-size: 15px;
+    height: 40px;
+    transition: border-color 0.3s;
+    max-width: 100%;
+    flex: 1;
+    margin: 10px;
+    width: 100%;
+}
+
+
+.contact_item textarea {
+    height: 300px;
+}
+
+.contact_item input:focus, .contact_item textarea:focus {
+    border-bottom: 4px solid #c0c0c0;
+    outline: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-content {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#send_success {
+    width: 400px;
+    position: fixed;
+    z-index: 9999; /* 要素を最前面に表示 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw; /* 要素を画面全体に広げる */
+    top: 0; /* 画面上端に配置 */
+    left: 0; /* 画面左端に配置 */
+}
+
+  /* ボタンのスタイル */
+.close-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #0056b3;
+}
+
+.submit_btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.copyright {
+    margin: 20px;
+    text-align: center;
+}
+
+/*=====メディアクエリー用CSS=====*/
+@media (max-width: 768px) {
+/*=====ヘッダー部分=====*/
+        #header {
+            text-align: center;
+            display: block;
+        }
+
+        #header nav {
+            display: none;
+        }
+/*=====ハンバーガーメニュー=====*/
+        .menu-btn {
+            visibility: visible;
+        }
+/*=====ハンバーガーメニュー=====*/
+/*=====ヘッダー部分=====*/
+
+/*=====プロフィール=====*/
+#profile {
+    padding: 20px;
+    flex-direction: column; /* 縦表示に切り替え */
+    justify-content: space-evenly;
+}
+
+.bio-container p {
+    font-size: 14px;
+}
+
+.image-container {
+    margin-right: 0px;
+    width: auto;
+}
+
+.my_name {
+    font-size: 30px;
+    text-align: left;
+}
+
+.img_profile {
+    max-width: 50%;
+}
+
+/*=====プロフィール=====*/
+/*=====制作実績=====*/
+.portfolio-title {
+    font-size: 19px;
+    text-align: center;
+}
+
+.portfolio-description {
+    font-size: 15px;
+}
+
+.portfolio-row {
+    flex-direction: column;
+    margin: 0;
+    display: block; /* 横並びを解除し、ブロック要素に変更 */
+    overflow-x: scroll; /* 横スクロール可能にする */
+    white-space: nowrap; /* 子要素が横に並ぶように改行を防ぐ */
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
+  }
+
+   /*Google Chrome、Safariへの対応*/
+.portfolio-row::-webkit-scrollbar{
+    display: none;
+  }
+
+  .portfolio-section {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 20px); /* セクションの幅を親要素の幅から余白分を引いた値に設定 */
+    margin: 10px; /* 余白を追加 */
+    box-sizing: border-box; /* paddingとborderが要素のサイズに含まれるようにする */
+    overflow: hidden; /* コンテンツがはみ出した場合は表示しない */
+    white-space: normal; /* テキストの改行を許可 */
+}
+  .portfolio-image img {
+    width: 100%;
+  }
+
+  
+/*=====制作実績=====*/
+
+}
+/*=====iPhoneSE用のレスポンシブ対応=====*/
+@media (max-width: 375px) {
+/*=====プロフィール=====*/
+    .img_profile {
+        max-width: 60%; /* プロフィール画像のサイズを調整 */
+    }
+    .my_name {
+        font-size: 25px; /* 名前のフォントサイズを調整 */
+    }
+    .ruby {
+        font-size: 12px; /* ルビのフォントサイズを調整 */
+    }
+    .bio-container p {
+        font-size: 11px; /* 自己紹介文のフォントサイズを調整 */
+    }
+}
